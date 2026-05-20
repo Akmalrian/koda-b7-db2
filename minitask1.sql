@@ -48,8 +48,10 @@ ORDER BY c1.name ASC;
 SELECT c1.name AS customer_name, COUNT(c2.id) AS count_reffered
 FROM customers c1 
 LEFT JOIN customers c2 ON c2.referred_by = c1.id
-WHERE c2.referred_by > 0
 GROUP BY c1.name
-ORDER BY c1.name ASC;
+-- WHERE c2.referred_by = 2
+HAVING COUNT(c2.id) > 0;
+-- GROUP BY c1.name
+-- ORDER BY c1.name ASC;
 
 
